@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield, Sparkles, TrendingUp } from "lucide-react"
+import { ArrowRight, Sparkles, TrendingUp } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useLanguage } from "@/contexts/language-context"
@@ -156,12 +156,6 @@ export function Hero() {
       </div>
 
       {/* Floating elements with proper opacity for dark mode */}
-      <div
-        className="absolute top-20 left-10 opacity-15 dark:opacity-25 transition-opacity duration-500"
-        aria-hidden="true"
-      >
-        <Shield className="h-8 w-8 text-primary animate-float" />
-      </div>
       <div
         className="absolute bottom-20 right-10 opacity-15 dark:opacity-25 transition-opacity duration-500"
         aria-hidden="true"

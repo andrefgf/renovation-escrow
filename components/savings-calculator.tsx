@@ -58,11 +58,11 @@ export function SavingsCalculator() {
   return (
     <section
       id="calculator"
-      className="py-24 relative overflow-hidden bg-background dark:bg-background transition-colors duration-500"
+      className="py-24 relative overflow-hidden surface-0 section-fade transition-colors duration-150"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-purple-500/5 dark:from-primary/10 dark:to-purple-500/10 transition-colors duration-500" />
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-primary/10 dark:from-primary/20 to-transparent rounded-full blur-3xl transition-colors duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-purple-500/5 dark:from-primary/8 dark:to-purple-500/8 transition-all duration-150" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-primary/10 dark:from-primary/15 to-transparent rounded-full blur-3xl transition-all duration-150" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div

@@ -85,46 +85,87 @@
 
 @layer base {
   * {
-    @apply border-border transition-colors duration-300;
+    @apply border-border;
+    /* Faster, smoother transitions */
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   }
 
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    /* Faster theme transition */
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
   }
 
-  /* Enhanced surface elevation classes */
+  /* Enhanced surface elevation classes with smooth transitions */
   .surface-0 {
     background-color: hsl(var(--surface-0));
+    transition: background-color 0.15s ease-in-out;
   }
 
   .surface-1 {
     background-color: hsl(var(--surface-1));
+    transition: background-color 0.15s ease-in-out;
   }
 
   .surface-2 {
     background-color: hsl(var(--surface-2));
+    transition: background-color 0.15s ease-in-out;
   }
 
   .surface-3 {
     background-color: hsl(var(--surface-3));
+    transition: background-color 0.15s ease-in-out;
   }
 
   .surface-4 {
     background-color: hsl(var(--surface-4));
+    transition: background-color 0.15s ease-in-out;
   }
 
-  /* Semantic text classes */
+  /* Semantic text classes with smooth transitions */
   .text-primary-semantic {
     color: hsl(var(--text-primary));
+    transition: color 0.15s ease-in-out;
   }
 
   .text-secondary-semantic {
     color: hsl(var(--text-secondary));
+    transition: color 0.15s ease-in-out;
   }
 
   .text-tertiary-semantic {
     color: hsl(var(--text-tertiary));
+    transition: color 0.15s ease-in-out;
+  }
+
+  /* Section fade transitions */
+  .section-fade {
+    position: relative;
+  }
+
+  .section-fade::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, hsl(var(--background)), transparent);
+    z-index: 1;
+    transition: background 0.15s ease-in-out;
+  }
+
+  .section-fade::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to top, hsl(var(--background)), transparent);
+    z-index: 1;
+    transition: background 0.15s ease-in-out;
   }
 
   /* Enhanced focus indicators */
@@ -268,7 +309,7 @@
   animation: slide-up 0.6s ease-out forwards;
 }
 .animate-theme-switch {
-  animation: theme-switch 0.6s ease-in-out;
+  animation: theme-switch 0.4s ease-in-out;
 }
 
 /* Smooth scrolling */

@@ -33,7 +33,7 @@ export function ThemeToggle() {
     setTimeout(() => {
       document.body.removeChild(ariaLive)
       setIsAnimating(false)
-    }, 1000)
+    }, 400)
   }
 
   if (!mounted) {
@@ -56,7 +56,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="sm"
       onClick={handleThemeToggle}
-      className={`h-10 w-10 px-0 rounded-xl border transition-all duration-300 group relative overflow-hidden btn-accessible ${
+      className={`h-10 w-10 px-0 rounded-xl border transition-all duration-200 group relative overflow-hidden btn-accessible ${
         isDark
           ? "border-blue-400/40 bg-slate-900/60 hover:bg-slate-800/70 hover:border-blue-300/60 shadow-lg shadow-blue-500/20"
           : "border-amber-400/40 bg-amber-50/60 hover:bg-amber-100/70 hover:border-amber-300/60 shadow-lg shadow-amber-500/20"
