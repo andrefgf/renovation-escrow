@@ -3,41 +3,43 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { UserCheck, FileText, Camera, CreditCard } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
-
-const steps = [
-  {
-    icon: UserCheck,
-    title: "Sign Up & Verify",
-    description: "Create your account and complete KYC verification for both homeowners and contractors.",
-    step: "01",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: FileText,
-    title: "Define Milestones",
-    description: "Set clear project milestones and payment schedules with your contractor.",
-    step: "02",
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: Camera,
-    title: "Submit Evidence",
-    description: "Contractors submit photos/videos and request inspections for milestone completion.",
-    step: "03",
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    icon: CreditCard,
-    title: "Secure Payment",
-    description: "Funds are automatically released once verification is complete.",
-    step: "04",
-    color: "from-orange-500 to-red-500",
-  },
-]
+import { useLanguage } from "@/contexts/language-context"
 
 export function HowItWorks() {
-  const [visibleSteps, setVisibleSteps] = useState<boolean[]>(new Array(steps.length).fill(false))
+  const [visibleSteps, setVisibleSteps] = useState<boolean[]>(new Array(4).fill(false))
   const stepRefs = useRef<(HTMLDivElement | null)[]>([])
+  const { t } = useLanguage()
+
+  const steps = [
+    {
+      icon: UserCheck,
+      titleKey: "signUpVerify",
+      descKey: "signUpVerifyDesc",
+      step: "01",
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      icon: FileText,
+      titleKey: "defineMilestones",
+      descKey: "defineMilestonesDesc",
+      step: "02",
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      icon: Camera,
+      titleKey: "submitEvidence",
+      descKey: "submitEvidenceDesc",
+      step: "03",
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      icon: CreditCard,
+      titleKey: "securePayment",
+      descKey: "securePaymentDesc",
+      step: "04",
+      color: "from-orange-500 to-red-500",
+    },
+  ]
 
   useEffect(() => {
     const observers = stepRefs.current.map((ref, index) => {
@@ -75,16 +77,14 @@ export function HowItWorks() {
         <div className="text-center mb-20">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6">
             <FileText className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Simple Process</span>
+            <span className="text-sm font-medium text-primary">{t("simpleProcess")}</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-              How It Works
+              {t("howItWorksTitle")}
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Four simple steps to secure your renovation project.
-          </p>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("howItWorksSubtitle")}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -122,8 +122,10 @@ export function HowItWorks() {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                  <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">
+                    {t(step.titleKey as any)}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">{t(step.descKey as any)}</p>
                 </CardContent>
               </Card>
             </div>

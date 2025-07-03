@@ -8,58 +8,63 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Shield, ArrowLeft } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const { t } = useLanguage()
 
   const handleLogin = (userType: string) => {
-    // Here you would integrate with your authentication system
     console.log(`Logging in ${userType} with:`, { email, password })
-    // Redirect to KYC validation after successful login
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-900 mb-4">
+          <Link
+            href="/"
+            className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 mb-4"
+          >
             <ArrowLeft className="h-4 w-4" />
-            <span>Back to Home</span>
+            <span>{t("backToHome")}</span>
           </Link>
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Shield className="h-8 w-8 text-blue-600" />
-            <span className="text-2xl font-bold text-gray-900">EscrowReno</span>
+            <Shield className="h-8 w-8 text-primary" />
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              EscrowReno
+            </span>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">Welcome Back</h1>
-          <p className="text-gray-600">Sign in to your account</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t("welcomeBack")}</h1>
+          <p className="text-gray-600 dark:text-gray-400">{t("signInToAccount")}</p>
         </div>
 
         <Tabs defaultValue="homeowner" className="w-full">
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="homeowner">Homeowner</TabsTrigger>
-            <TabsTrigger value="contractor">Contractor</TabsTrigger>
+            <TabsTrigger value="homeowner">{t("homeowner")}</TabsTrigger>
+            <TabsTrigger value="contractor">{t("contractor")}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="homeowner">
             <Card>
               <CardHeader>
-                <CardTitle>Homeowner Login</CardTitle>
-                <CardDescription>Access your renovation projects and escrow accounts.</CardDescription>
+                <CardTitle>{t("homeownerLogin")}</CardTitle>
+                <CardDescription>{t("homeownerLoginDesc")}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email-homeowner">Email</Label>
+                  <Label htmlFor="email-homeowner">{t("email")}</Label>
                   <Input
                     id="email-homeowner"
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder={t("emailPlaceholder")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="password-homeowner">Password</Label>
+                  <Label htmlFor="password-homeowner">{t("password")}</Label>
                   <Input
                     id="password-homeowner"
                     type="password"
@@ -68,11 +73,11 @@ export default function LoginPage() {
                   />
                 </div>
                 <Button className="w-full" onClick={() => handleLogin("homeowner")}>
-                  Sign In as Homeowner
+                  {t("signInAsHomeowner")}
                 </Button>
                 <div className="text-center">
-                  <Link href="/forgot-password" className="text-sm text-blue-600 hover:underline">
-                    Forgot your password?
+                  <Link href="/forgot-password" className="text-sm text-primary hover:underline">
+                    {t("forgotPassword")}
                   </Link>
                 </div>
               </CardContent>
@@ -82,22 +87,22 @@ export default function LoginPage() {
           <TabsContent value="contractor">
             <Card>
               <CardHeader>
-                <CardTitle>Contractor Login</CardTitle>
-                <CardDescription>Manage your projects and track payments.</CardDescription>
+                <CardTitle>{t("contractorLogin")}</CardTitle>
+                <CardDescription>{t("contractorLoginDesc")}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email-contractor">Email</Label>
+                  <Label htmlFor="email-contractor">{t("email")}</Label>
                   <Input
                     id="email-contractor"
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder={t("emailPlaceholder")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="password-contractor">Password</Label>
+                  <Label htmlFor="password-contractor">{t("password")}</Label>
                   <Input
                     id="password-contractor"
                     type="password"
@@ -106,11 +111,11 @@ export default function LoginPage() {
                   />
                 </div>
                 <Button className="w-full" onClick={() => handleLogin("contractor")}>
-                  Sign In as Contractor
+                  {t("signInAsContractor")}
                 </Button>
                 <div className="text-center">
-                  <Link href="/forgot-password" className="text-sm text-blue-600 hover:underline">
-                    Forgot your password?
+                  <Link href="/forgot-password" className="text-sm text-primary hover:underline">
+                    {t("forgotPassword")}
                   </Link>
                 </div>
               </CardContent>
@@ -119,10 +124,10 @@ export default function LoginPage() {
         </Tabs>
 
         <div className="text-center mt-6">
-          <p className="text-sm text-gray-600">
-            Don't have an account?{" "}
-            <Link href="/signup" className="text-blue-600 hover:underline">
-              Sign up here
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            {t("dontHaveAccount")}{" "}
+            <Link href="/signup" className="text-primary hover:underline">
+              {t("signUpHere")}
             </Link>
           </p>
         </div>
