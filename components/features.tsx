@@ -76,19 +76,19 @@ export function Features() {
   }, [])
 
   return (
-    <section id="features" className="py-24 relative bg-background dark:bg-background transition-colors duration-500">
+    <section id="features" className="py-24 relative surface-0 transition-colors duration-500">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 rounded-full mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 surface-2 border border-primary/20 dark:border-primary/30 rounded-full mb-6 backdrop-blur-sm shadow-sm dark:shadow-lg">
             <Shield className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-primary">{t("completeProtection")}</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-foreground to-primary dark:from-foreground dark:to-primary bg-clip-text text-transparent">
+            <span className="text-primary-semantic bg-gradient-to-r from-foreground to-primary dark:from-foreground dark:to-primary bg-clip-text text-transparent">
               {t("everythingYouNeed")}
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("featuresSubtitle")}</p>
+          <p className="text-xl text-secondary-semantic max-w-2xl mx-auto">{t("featuresSubtitle")}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -101,19 +101,19 @@ export function Features() {
                 visibleCards[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              <Card className="p-8 h-full hover:shadow-2xl dark:hover:shadow-primary/10 transition-all duration-500 group border-0 bg-gradient-to-br from-background to-accent/20 dark:from-card dark:to-accent/10 hover:to-accent/40 dark:hover:to-accent/20 backdrop-blur-sm">
+              <Card className="p-8 h-full hover:shadow-2xl dark:hover:shadow-primary/10 transition-all duration-500 group border-0 surface-1 hover:surface-2 dark:hover:surface-2 backdrop-blur-sm">
                 <div className="relative">
                   <div
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${feature.color} p-0.5 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                   >
-                    <div className="w-full h-full bg-background dark:bg-card rounded-2xl flex items-center justify-center transition-colors duration-300">
-                      <feature.icon className="h-8 w-8 text-foreground" />
+                    <div className="w-full h-full surface-0 rounded-2xl flex items-center justify-center transition-colors duration-300">
+                      <feature.icon className="h-8 w-8 text-primary-semantic" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl font-bold mb-4 text-primary-semantic group-hover:text-primary transition-colors duration-300">
                     {t(feature.titleKey as any)}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">{t(feature.descKey as any)}</p>
+                  <p className="text-secondary-semantic leading-relaxed">{t(feature.descKey as any)}</p>
                 </div>
               </Card>
             </div>

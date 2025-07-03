@@ -8,9 +8,9 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen surface-0 transition-colors duration-500">
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <Features />
         <HowItWorks />
