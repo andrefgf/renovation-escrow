@@ -29,7 +29,7 @@ export const translations = {
 
     // Hero Section
     trustedInPortugal: "Mais de 10.000 proprietários portugueses confiam em nós",
-    heroTitle: "Pagamentos de Renovação Reimaginados",
+    heroTitle: "Renovações Sem Riscos",
     heroSubtitle:
       "Pagamentos seguros baseados em marcos que protegem o seu investimento e garantem trabalhos de qualidade.",
     startFreeTrial: "Começar Gratuitamente",
@@ -80,8 +80,8 @@ export const translations = {
 
     // Calculator
     freeTool: "Ferramenta Gratuita",
-    calculateYourSavings: "Calcule as Suas Poupanças",
-    calculatorSubtitle: "Descubra quanto pode poupar e proteger com o nosso serviço de caução.",
+    calculateYourSavings: "Calcule o Seu Projeto",
+    calculatorSubtitle: "Descubra o custo real da sua renovação e a proteção que oferecemos.",
 
     projectDetails: "Detalhes do Projeto",
     projectValue: "Valor do Projeto",
@@ -209,7 +209,7 @@ export const translations = {
 
     // Hero Section
     trustedInPortugal: "Trusted by 10,000+ Portuguese homeowners",
-    heroTitle: "Renovation Payments Reimagined",
+    heroTitle: "Risk-Free Renovations",
     heroSubtitle: "Secure milestone-based payments that protect your investment and ensure quality work completion.",
     startFreeTrial: "Start Free Trial",
     calculateSavings: "Calculate Savings",
@@ -259,8 +259,8 @@ export const translations = {
 
     // Calculator
     freeTool: "Free Tool",
-    calculateYourSavings: "Calculate Your Savings",
-    calculatorSubtitle: "Discover how much you could save and protect with our escrow service.",
+    calculateYourSavings: "Calculate Your Project",
+    calculatorSubtitle: "Discover the real cost of your renovation and the protection we offer.",
 
     projectDetails: "Project Details",
     projectValue: "Project Value",

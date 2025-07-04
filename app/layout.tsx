@@ -12,14 +12,16 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "EscrowReno - Pagamentos Seguros de Renovação | Proteção para Proprietários e Empreiteiros",
+  title: "EscrowReno - Renovações Sem Riscos | Proteção para Proprietários e Empreiteiros",
   description:
-    "Proteja o seu investimento em renovação com pagamentos de caução baseados em marcos. Plataforma de confiança para proprietários e empreiteiros em Portugal. Pagamentos seguros, verificação de qualidade e resolução de conflitos.",
-  keywords: "renovação, pagamentos seguros, caução, empreiteiros, Portugal, SIBS, proteção investimento",
+    "Proteja o seu investimento em renovação com pagamentos de caução baseados em marcos. Plataforma de confiança para proprietários e empreiteiros em Portugal. Zero riscos de burla ou falta de pagamento.",
+  keywords:
+    "renovação sem riscos, pagamentos seguros, caução, empreiteiros, Portugal, SIBS, proteção investimento, anti-burla",
   authors: [{ name: "EscrowReno" }],
   openGraph: {
-    title: "EscrowReno - Pagamentos Seguros de Renovação",
-    description: "Proteja o seu investimento em renovação com pagamentos seguros baseados em marcos.",
+    title: "EscrowReno - Renovações Sem Riscos",
+    description:
+      "Proteja o seu investimento em renovação com pagamentos seguros baseados em marcos. Zero riscos de burla.",
     locale: "pt_PT",
     type: "website",
   },
