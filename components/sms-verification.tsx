@@ -191,9 +191,9 @@ export function SmsVerification({
   const formatPhoneNumber = (phone: string) => {
     // Mask middle digits for privacy
     if (phone.length > 8) {
-      const start = phone.slice(0, 4)
-      const end = phone.slice(-4)
-      const middle = "*".repeat(phone.length - 8)
+      const start = phone.slice(0, 6) // Show country code + first digit
+      const end = phone.slice(-3) // Show last 3 digits
+      const middle = "*".repeat(Math.max(0, phone.length - 9))
       return start + middle + end
     }
     return phone

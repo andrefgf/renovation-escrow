@@ -14,9 +14,9 @@ import { useLanguage } from "@/contexts/language-context"
 import { CaptchaMock } from "@/components/captcha-mock"
 import { SmsVerification } from "@/components/sms-verification"
 import { EmailVerification } from "@/components/email-verification"
-import { CountrySelector } from "@/components/country-selector"
 import { validateEmail, validatePhoneNumber, validatePassword, sanitizeInput } from "@/lib/validation"
 import { sortedCountries, type Country } from "@/lib/countries"
+import { PhoneInput } from "@/components/phone-input"
 
 type SignupStep = "form" | "sms" | "email" | "success"
 type UserType = "homeowner" | "contractor"
@@ -348,24 +348,16 @@ export default function SignupPage() {
                   />
                   {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">{t("phoneNumber")} *</Label>
-                  <div className="flex space-x-2">
-                    <CountrySelector value={selectedCountry} onValueChange={setSelectedCountry} disabled={isLoading} />
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => handlePhoneChange(e.target.value)}
-                      className={`flex-1 ${errors.phone ? "border-red-500" : ""}`}
-                      placeholder={selectedCountry.format?.replace(/X/g, "0") || "Phone number"}
-                    />
-                  </div>
-                  {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
-                  {selectedCountry.format && (
-                    <p className="text-xs text-muted-foreground">Formato: {selectedCountry.format}</p>
-                  )}
-                </div>
+                <PhoneInput
+                  value={formData.phone}
+                  onChange={(value) => handleInputChange("phone", value)}
+                  selectedCountry={selectedCountry}
+                  onCountryChange={setSelectedCountry}
+                  error={errors.phone}
+                  disabled={isLoading}
+                  label={t("phoneNumber")}
+                  required
+                />
                 <div className="space-y-2">
                   <Label htmlFor="password">{t("password")} *</Label>
                   <Input
@@ -493,24 +485,16 @@ export default function SignupPage() {
                   />
                   {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone-contractor">{t("phoneNumber")} *</Label>
-                  <div className="flex space-x-2">
-                    <CountrySelector value={selectedCountry} onValueChange={setSelectedCountry} disabled={isLoading} />
-                    <Input
-                      id="phone-contractor"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => handlePhoneChange(e.target.value)}
-                      className={`flex-1 ${errors.phone ? "border-red-500" : ""}`}
-                      placeholder={selectedCountry.format?.replace(/X/g, "0") || "Phone number"}
-                    />
-                  </div>
-                  {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
-                  {selectedCountry.format && (
-                    <p className="text-xs text-muted-foreground">Formato: {selectedCountry.format}</p>
-                  )}
-                </div>
+                <PhoneInput
+                  value={formData.phone}
+                  onChange={(value) => handleInputChange("phone", value)}
+                  selectedCountry={selectedCountry}
+                  onCountryChange={setSelectedCountry}
+                  error={errors.phone}
+                  disabled={isLoading}
+                  label={t("phoneNumber")}
+                  required
+                />
                 <div className="space-y-2">
                   <Label htmlFor="password-contractor">{t("password")} *</Label>
                   <Input
